@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/images/favicon_dbi.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>MILLANDY MEUDON</title>
+</head>
+<body>
+
+    <div class="container-global">
+
+    <section class="container-left">
+
+        <header>
+            <img src="./assets/images/logo_millandy.svg" alt="">
+        </header>
+
+        <main>
+            <h1>Grand lancement</h1>
+            <p class="launch-date">septembre 2023</p>
+            <p class="text-info">Découvrez<br> nos <span class="bold-text">appartements neufs <br> à meudon</span></p>
+        </main>
+
+        <footer class="footer-desktop">
+            <img src="./assets/images/logo_dbi.svg" alt="">
+            <p>Programme réalisé et commercialisé par Demathieu et Bard Immobilier, 17 
+                rue Vénizelos, 57950 Montigny-lès-Metz, SAS au capital de 30 000 000 €
+                RCS : 353 708 746. SIRET 3537087400014.
+            </p>
+        </footer>
+
+    </section>
+
+    <section class="container-right">
+
+        <div class="container-form">
+            <h1>inscrivez-vous</h1>
+            <p class="subtitle-form">Remplissez le formulaire pour télécharger la brochure et obtenir <br> plus d'informations
+                sur la résidence Millandy à Meudon
+            </p>
+
+            <form id="form" action="">
+                <input type="text" placeholder="Nom*">
+                <input type="email" placeholder="Email*">
+                <input type="text" placeholder="Prenom*">
+                <input type="text" id="inputTelephone" name="telephone" placeholder="Téléphone*">
+                <input type="text" id="inputVilleCP" placeholder="CP/Ville*">
+                <div id="suggestionBox"></div>
+
+                <p class="text-appointment">Si vous souhaitez être rappelé,<br> choisissez une date ainsi qu'une heure :</p>
+            
+                <div class="container-appointment">
+                    <div class="input-appointment">
+                        <span class="material-symbols-outlined">calendar_month</span>
+                        <input type="text">
+                    </div>
+                    <div class="input-appointment">
+                        <input type="text">
+                        <span class="material-symbols-outlined">schedule</span>
+                    </div>
+                </div>
+    
+                <p class="info-form">* Afin de pouvoir répondre à votre demande d'information,<br> ces champs sont obligatoires</p>
+
+                <div class="container-consent">
+                    <input type="checkbox" id="consent">
+                    <label for="consent">Je souhaite recevoir des informations de la part de<br> Demathieu Bard Immobilier</label>
+                </div>
+                
+
+                <div class="container-btn-form">
+                    <button type="submit">ENVOYER</button>
+                </div>
+
+                <span id="telephoneError" style="color: red; display: none;">Numéro de téléphone invalide</span>
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <footer class="footer-mobile">
+        <div class="container-img-footer">
+            <img src="./assets/images/logo_dbi.svg" alt="">
+        </div>
+        <p>Programme réalisé et commercialisé par Demathieu et Bard Immobilier, 17 
+            rue Vénizelos, 57950 Montigny-lès-Metz, SAS au capital de 30 000 000 €
+            RCS : 353 708 746. SIRET 3537087400014.
+        </p>
+    </footer>
+
+</div>
+    <script src="./assets/js/index.js"></script>
+</body>
+</html>
