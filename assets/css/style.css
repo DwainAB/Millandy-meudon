@@ -289,6 +289,11 @@ input{
 
     footer p{
         color: #ffffff;
+        text-align: center;
+    }
+
+    br.br-subtile {
+        display: none;
     }
 }
 
@@ -337,8 +342,8 @@ input{
 
     footer p{
         width: 100%;
-        padding-left: 50px;
-        padding-right: 50px;
+        padding-left: 100px;
+        padding-right: 100px;
     }
 
     .container-consent input{
