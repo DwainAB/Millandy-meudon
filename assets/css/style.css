@@ -260,7 +260,7 @@ input{
         width: 175px;
     }
 
-    .test{
+    .container-global{
         flex-direction: column;
     }
 

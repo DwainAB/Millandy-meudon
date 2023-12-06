@@ -46,11 +46,11 @@
             </p>
 
             <form id="form" action="">
-                <input type="text" placeholder="Nom*">
-                <input type="email" placeholder="Email*">
-                <input type="text" placeholder="Prenom*">
-                <input type="text" id="inputTelephone" name="telephone" placeholder="Téléphone*">
-                <input type="text" id="inputVilleCP" placeholder="CP/Ville*">
+                <input type="text" placeholder="Nom*" required>
+                <input type="email" placeholder="Email*" required>
+                <input type="text" placeholder="Prenom*" required>
+                <input type="text" id="inputTelephone" name="telephone" placeholder="Téléphone*" required>
+                <input type="text" id="inputVilleCP" placeholder="CP/Ville*" required>
                 <div id="suggestionBox"></div>
 
                 <p class="text-appointment">Si vous souhaitez être rappelé,<br> choisissez une date ainsi qu'une heure :</p>
@@ -69,7 +69,7 @@
                 <p class="info-form">* Afin de pouvoir répondre à votre demande d'information,<br> ces champs sont obligatoires</p>
 
                 <div class="container-consent">
-                    <input type="checkbox" id="consent">
+                    <input type="checkbox" id="consent" required>
                     <label for="consent">Je souhaite recevoir des informations de la part de<br> Demathieu Bard Immobilier</label>
                 </div>
                 

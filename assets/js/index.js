@@ -1,3 +1,4 @@
+//Appel api des villes
 function fetchSuggestions(searchTerm, callback) {
     fetch('https://tech.agence-markus.com/librairies/getCity.php?term=' + encodeURIComponent(searchTerm))
         .then(response => response.json())
@@ -5,26 +6,27 @@ function fetchSuggestions(searchTerm, callback) {
         .catch(error => console.error('Error:', error));
 }
 
+//Une fois que tous est chargé
 document.addEventListener('DOMContentLoaded', function() {
 
     let inputField = document.getElementById('inputVilleCP');
     let suggestionBox = document.getElementById('suggestionBox');
     let phoneInput = document.getElementById('inputTelephone');
     let errorSpan = document.getElementById('telephoneError');
-    var form = document.getElementById('form');
+    let form = document.getElementById('form');
 
-
+    //Quand le formulaire est soumis gère le message d'erreur
     form.addEventListener('submit', function(event) {
-        var phoneValue = phoneInput.value;
+        let phoneValue = phoneInput.value;
         if (!isValidPhoneNumber(phoneValue)) {
             errorSpan.style.display = 'block';
-            event.preventDefault(); // Empêche l'envoi du formulaire
+            event.preventDefault(); 
         } else {
             errorSpan.style.display = 'none';
         }
     });
 
-    // Affiche les suggestions lorsque le champ de saisie a le focus
+    // lorsque que l'input est sélectionné affiche les villes en fonction de la valeur ecrite dans l'input
     inputField.addEventListener('focus', function() {
         if (this.value.length > 1) {
             fetchSuggestions(this.value, function(suggestions) {
@@ -33,15 +35,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Cache les suggestions lorsque le champ de saisie perd le focus
-    inputField.addEventListener('blur', function() {
-        setTimeout(function() { // Utilisez setTimeout pour permettre la sélection d'une suggestion
-            suggestionBox.style.display = 'none';
-        }, 100); // Un léger délai permet de cliquer sur une suggestion avant qu'elle ne disparaisse
-    });
-
+    //Affiche les villes à chaque changement dans l'input
     inputField.addEventListener('input', function() {
-        var searchTerm = this.value;
+        let searchTerm = this.value;
         if (searchTerm.length > 1) {
             fetchSuggestions(searchTerm, function(suggestions) {
                 updateSuggestionBox(suggestions, suggestionBox, inputField);
@@ -52,24 +48,37 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+    // lorsque que l'input n'est plus sélectionné on cache les villes
+    inputField.addEventListener('blur', ()=> {
+        setTimeout(function() { 
+            suggestionBox.style.display = 'none';
+        }, 100); 
+    });
 
 
+
+
+//Affiche toutes les villes récupéré dans une div
 function updateSuggestionBox(suggestions, suggestionBox, inputField) {
     suggestionBox.innerHTML = '';
+
     suggestions.forEach(function(item) {
-        var div = document.createElement('div');
+        let div = document.createElement('div');
         div.className = 'suggestion';
         div.textContent = item.label;
+
         div.addEventListener('click', function() {
             inputField.value = this.textContent;
             suggestionBox.style.display = 'none';
         });
+
         suggestionBox.appendChild(div);
     });
     suggestionBox.style.display = suggestions.length > 0 ? 'block' : 'none';
 }
 
+//verifie le champs du formulaire qui gère le téléphone
 function isValidPhoneNumber(phoneNumber) {
-    var regex = /^(?:\+\d{1,3}\s?)?\d{10}$/;
+    let regex = /^(?:\+\d{1,3}\s?)?\d{10}$|^\+\d{1,3}\d{9}$/;
     return regex.test(phoneNumber);
 }
