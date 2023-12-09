@@ -50,18 +50,21 @@
                 <input type="email" placeholder="Email*" required>
                 <input type="text" placeholder="Prenom*" required>
                 <input type="text" id="inputTelephone" name="telephone" placeholder="Téléphone*" required>
-                <input type="text" id="inputVilleCP" placeholder="CP/Ville*" required>
-                <div id="suggestionBox"></div>
+                <div class="container-input-city">
+                    <input type="text" id="inputVilleCP" placeholder="CP/Ville*" required>
+                    <div id="suggestionBox"></div>
+                </div>
+
 
                 <p class="text-appointment">Si vous souhaitez être rappelé,<br> choisissez une date ainsi qu'une heure :</p>
             
                 <div class="container-appointment">
                     <div class="input-appointment">
                         <span class="material-symbols-outlined">calendar_month</span>
-                        <input type="text">
+                        <input type="date">
                     </div>
                     <div class="input-appointment">
-                        <input type="text">
+                        <input type="time">
                         <span class="material-symbols-outlined">schedule</span>
                     </div>
                 </div>

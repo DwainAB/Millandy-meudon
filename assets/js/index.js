@@ -46,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
             suggestionBox.style.display = 'none';
         }
     });
-});
 
     // lorsque que l'input n'est plus sélectionné on cache les villes
     inputField.addEventListener('blur', ()=> {
@@ -54,6 +53,8 @@ document.addEventListener('DOMContentLoaded', function() {
             suggestionBox.style.display = 'none';
         }, 100); 
     });
+
+});
 
 
 

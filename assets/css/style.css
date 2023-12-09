@@ -1,10 +1,12 @@
 body{
     margin: 0;
+    padding: 50px;
     background-image: url("../images/bg_desktop.svg");
     background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-    background-size: cover;
+    background-size: 100% 100%;
+    background-position: center center;
+    height: 100vh;
+    width: 100vw;
 }
 
 *{
@@ -18,7 +20,7 @@ body{
 }
 
 header img{
-    width: 100%;
+    width: clamp(20rem,20.3vw,24.375rem);
 }
 
 main{
@@ -32,7 +34,6 @@ main{
 .container-left{
     color: #ffffff;
     margin-left: 50px;
-    padding-top: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,21 +51,21 @@ main{
 
 main h1{
     color: #917956;
-    font-size: 3.125rem;
+    font-size: clamp(2.7rem,2.6vw,3.125rem);
     font-weight: 900;
-    margin-top: 100px;
-    margin-bottom: 20px;
+    margin-top: 5vw;
+    margin-bottom: 20px;   
 }
 
 .launch-date{
     color: #ffffff;
-    font-size: 2.5rem;
+    font-size: clamp(2.075rem,2.1vw,2.5rem);
     font-weight: 300;
     margin: 0;
 }
 
 .text-info{
-    font-size: 1.75rem;
+    font-size: clamp(1.325rem,1.46vw,1.75rem);
     font-weight: 300;
 }
 
@@ -73,7 +74,7 @@ main h1{
 }
 
 footer{
-    margin-top: 70px;
+    margin-top: min(3vw, 50px);
 }
 
 footer p{
@@ -101,7 +102,7 @@ footer p{
     padding-left: 50px;
     padding-right: 50px;
     padding-top: 30px;
-    margin-top: 100px;
+    margin-top: 60px;
     padding-bottom: 50px;
     margin-left: 100px;
 }
@@ -115,7 +116,7 @@ footer p{
 
 .container-form h1{
     color: #000000;
-    font-size: 2.563rem;
+    font-size: clamp(2.138rem,2.14vw,2.563rem);
     font-weight: 300;
     text-transform: uppercase;
     margin: 0;
@@ -125,13 +126,14 @@ footer p{
 .subtitle-form{
     color: #000000;
     font-size: 1rem;
+    font-size: clamp(.7rem,.833vw,1rem);
     font-weight: 400;
 }
 
 input{
     color: #696f6f;
     background-color: #f1f5f3;
-    font-size: 1rem;
+    font-size: clamp(.7rem,.833vw,1rem);
     font-style: italic;
     border: 0;
     width: 100%;
@@ -141,7 +143,7 @@ input{
 }
 
 .text-appointment{
-    font-size: 1rem;
+    font-size: clamp(.7rem,.833vw,1rem);
     font-weight: 400;
     margin: 0;
     margin-bottom: 10px;
@@ -151,17 +153,18 @@ input{
     display: flex;
     width: 100%;
     gap: 20px;
+    justify-content: space-between;
 }
 
 .container-appointment input{
     color: #696f6f;
     background-color: #f1f5f3;
-    font-size: 1rem;
+    font-size: clamp(.7rem,.833vw,1rem);
     font-weight: 400;
-    width: 15s0px;
     margin: 0;
     margin-bottom: 10px;
     padding-left: 40px;
+    width: 100%;
 }
 
 .info-form{
@@ -177,14 +180,15 @@ input{
 }
 
 .container-consent input{
-    width: 30px;
-    height: 30px;
+    width: clamp(20px, 1.56vw, 30px);
+    height: clamp(20px, 1.56vw, 30px);
     margin-right: 15px;
 }
 
 .container-consent label{
     color: #000000;
     font-size: 0.938rem;
+    font-size: clamp(.7rem,.783vw,.938rem);
     font-weight: 400;
 }
 
@@ -198,11 +202,20 @@ input{
     border-radius: 25px;
     font-weight: 300;
     font-size: 1.375rem;
+    font-size: clamp(.950rem,1.146vw,1.375rem);
     border: 0;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 50px;
     padding-right: 50px;
+    transition: all 0.3s;
+}
+
+.container-btn-form button:hover{
+    cursor: pointer;
+    background-color: #ffffff;
+    border: 1px solid #917956;
+    color: #917956;
 }
 
 #suggestionBox {
@@ -210,25 +223,57 @@ input{
     display: none;
     position: absolute; 
     background-color: white;
-    width: calc(15% - 20px); 
     height: 350px;
     overflow: scroll;
     box-sizing: border-box;
     z-index: 1000; 
-    bottom: 70px;
+    top:40px;
 }
 
 .suggestion {
     padding: 10px;
     cursor: pointer;
+    background-color: #917956;
+    color: #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
 }
 
 .suggestion:hover {
     background-color: #f0f0f0;
+    color: #917956;
 }
 
 .input-appointment{
     position: relative;
+    width: 100%;
+}
+
+.container-input-city{
+    position: relative;
+    width: 100%;
+}
+
+    /*-----input qui gère la date et l'heure-------*/
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    position: absolute;
+    left: 11px;
+    z-index: 9999;
+    font-size: 1.3rem;
+}
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    cursor: pointer;
+}
+input[type="time"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    position: absolute;
+    left: 0px;
+    z-index: 9999;
+    font-size: 1.3rem;
+}
+input[type="time"]::-webkit-calendar-picker-indicator:hover {
+    cursor: pointer;
 }
 
 .input-appointment span{
@@ -237,13 +282,16 @@ input{
     left: 10px;
 }
 
+
+
 /*------------Partie mobile-----------*/
 
 @media screen and (max-width:1100px) {
 
     body{
         background-image: url("../images/bg_mobile.svg");
-        background-attachment: initial;
+        height: 100%;
+        width: 100%;
     }
 
     header img{
@@ -328,7 +376,7 @@ input{
         font-size: 1.563rem;
     }
 
-    .subtitle-form, input, .text-appointment, .container-appointment input{
+    .subtitle-form, input, .text-appointment, .container-appointment input, .suggestion{
         font-size: 0.75rem;
     }
 
