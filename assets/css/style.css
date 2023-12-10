@@ -105,6 +105,7 @@ footer p{
     margin-top: 60px;
     padding-bottom: 50px;
     margin-left: 100px;
+    height: clamp(200px, 78vh, 800px);
 }
 
 .container-form form{
@@ -163,7 +164,7 @@ input{
     font-weight: 400;
     margin: 0;
     margin-bottom: 10px;
-    padding-left: 40px;
+    padding-left: 55px;
     width: 100%;
 }
 
@@ -258,7 +259,7 @@ input{
 input[type="date"]::-webkit-calendar-picker-indicator {
     opacity: 0;
     position: absolute;
-    left: 11px;
+    left: 27px;
     z-index: 9999;
     font-size: 1.3rem;
 }
@@ -268,7 +269,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 input[type="time"]::-webkit-calendar-picker-indicator {
     opacity: 0;
     position: absolute;
-    left: 0px;
+    left: 20px;
     z-index: 9999;
     font-size: 1.3rem;
 }
@@ -278,10 +279,10 @@ input[type="time"]::-webkit-calendar-picker-indicator:hover {
 
 .input-appointment span{
     position: absolute;
-    top: 7px;
-    left: 10px;
+    top: 10px;
+    left: 30px;
+    font-size: clamp(1.2rem,1vw,1.4rem);
 }
-
 
 
 /*------------Partie mobile-----------*/
@@ -351,10 +352,6 @@ input[type="time"]::-webkit-calendar-picker-indicator:hover {
         width: 100%;
     }
 
-    .input-appointment span{
-        font-size: 1.5rem ;
-    }
-
     .container-form{
         margin-left: 50px;
         margin-right: 50px;
@@ -399,5 +396,78 @@ input[type="time"]::-webkit-calendar-picker-indicator:hover {
         height: 20px;
     }
 
+    
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        left: 10px;
+        top: 10px;
+    }
 
+    input[type="time"]::-webkit-calendar-picker-indicator {
+        left: 0px;
+        top: 8px;
+    }
+
+    .input-appointment input{
+        padding-left: 37px;
+    }
+
+
+    .input-appointment span{
+        left: 10px;
+    }
+
+}
+
+
+
+@media screen and (max-height: 782px) {
+    header img{
+        width: 200px;
+    }
+
+    main h1{
+        font-size: 2rem;
+        margin: 0;
+        margin-top: 50px;
+    }
+
+    .launch-date{
+        font-size: 1.7rem;
+    }
+
+    .text-info{
+        font-size: 1.5rem;
+    }
+
+    footer img{
+        width: 120px;
+    }
+
+    footer p{
+        font-size: 0.5rem;
+    }
+
+    footer {
+        margin-top: 20px;
+    }
+
+
+}
+
+@media screen and (max-height: 882px) {
+    .container-form{
+        overflow: auto;
+    }
+
+    main h1{
+        margin-top: 30px;
+    }
+
+}
+
+@media screen and (max-height: 914px) {
+
+    header img{
+        width: 300px;
+    }
 }
